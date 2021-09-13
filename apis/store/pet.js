@@ -17,9 +17,8 @@ export const getPetById = async (petId) => {
   return response;
 };
 
-
 export const addAPet = async () => {
-  console.log('URL: '+petUrl)
+  console.log(`URL: ${petUrl}`);
   const response = await fetch(petUrl, {
     method: 'post',
     headers: await getHeaders(),
@@ -36,7 +35,7 @@ export const updatePetName = async (name) => {
   const response = await fetch(petUrl, {
     method: 'put',
     headers: await getHeaders(),
-    body: JSON.stringify(await updatedPetNamePayload (name)),
+    body: JSON.stringify(await updatedPetNamePayload(name)),
   })
     .then((resp) => resp)
     .catch((error) => {

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node ./node_modules/mocha/bin/_mocha --require @babel/register ./specs/**/*.spec.js   --timeout 99999999",
     "lint:fix": "eslint apis/*/**.js specs/*/**.js --fix",
-    "lint": "eslint apis/*/**.js specs/*/**.js"
+    "lint": "eslint apis/*/**.js specs/*/**.js",
+    "test:reports": "node ./node_modules/mocha/bin/_mocha --require @babel/register ./specs/**/*.spec.js   --timeout 99999999 --reporter mochawesome"
   },
   "keywords": [],
   "author": "vimukt@gmail.com",
@@ -18,16 +19,18 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/register": "^7.10.5",
     "chai": "^4.2.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.0",
     "faker": "^4.1.0",
+    "mochawesome": "^6.2.2",
+    "mochawesome-report-generator": "^5.2.0",
     "prettier": "^2.0.5"
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "ajv": "^6.12.4",
     "dotenv-flow": "^3.2.0",
-    "eslint": "^7.7.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.10",
     "mocha": "^8.1.1",

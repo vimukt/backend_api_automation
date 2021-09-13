@@ -1,6 +1,8 @@
 import { assert } from 'chai';
 import Ajv from 'ajv';
-import { addAPet, deletePetById, getPetById , updatePetName} from '../../apis/store/pet';
+import {
+  addAPet, deletePetById, getPetById, updatePetName,
+} from '../../apis/store/pet';
 
 const schema = require('../../schema/pet');
 
@@ -18,7 +20,7 @@ describe('Pet test suite :-> manage pet resource', () => {
     // Verify correct HTTP status code
     assert.equal(newPetResponse.status, 200);
     // Verify response payload
-    assert.equal(newPetBody.id,1);
+    assert.equal(newPetBody.id, 1);
     // Verify response headers
     assert.isTrue(contentType.includes('application/json'));
     // Validate the schema
@@ -44,7 +46,7 @@ describe('Pet test suite :-> manage pet resource', () => {
 
   it('find a pet by invalid id : Negative', async () => {
     const startTime = new Date().getTime();
-    //invalid Id
+    // invalid Id
     const invalidIdResponse = await getPetById(-10);
     // Verify basic performance sanity/Response time SLA (is 5 sec.)
     assert.isTrue(new Date().getTime() - startTime < API_RESPONSE_TIME_SLA);
@@ -54,39 +56,36 @@ describe('Pet test suite :-> manage pet resource', () => {
 
   it('update the petname: happy path', async () => {
     const startTime = new Date().getTime();
-    const petName = await updatePetName("Charlie");
+    const petName = await updatePetName('Charlie');
     const petNameBody = await petName.json();
 
     // Verify basic performance sanity/Response time SLA (is 5 sec.)
     assert.isTrue(new Date().getTime() - startTime < API_RESPONSE_TIME_SLA);
-   
+
     // Verify correct HTTP status code
-      assert.equal(petName.status, 200);
+    assert.equal(petName.status, 200);
 
     // Verify the update pet name
-    assert.equal(petNameBody.name, "Charlie");
+    assert.equal(petNameBody.name, 'Charlie');
   });
 
   it('delete pet by id: happy path', async () => {
     const startTime = new Date().getTime();
-    const deletedPet = await deletePetById(1)
+    const deletedPet = await deletePetById(1);
     // Verify basic performance sanity/Response time SLA (is 5 sec.)
     assert.isTrue(new Date().getTime() - startTime < API_RESPONSE_TIME_SLA);
-    
+
     // Verify correct HTTP status code
     assert.equal(deletedPet.status, 200);
-    
   });
 
   it('delete pet by invalid id: negative', async () => {
     const startTime = new Date().getTime();
-    const deletedPet = await deletePetById(-11)
+    const deletedPet = await deletePetById(-11);
     // Verify basic performance sanity/Response time SLA (is 5 sec.)
     assert.isTrue(new Date().getTime() - startTime < API_RESPONSE_TIME_SLA);
-    
+
     // Verify correct HTTP status code
     assert.equal(deletedPet.status, 404);
-    
   });
-
 });
