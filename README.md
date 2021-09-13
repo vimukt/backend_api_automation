@@ -1,6 +1,6 @@
 backend_api_automation :
 
-This code repository contains API tests for petstore v2 (https://petstore.swagger.io/v2/swagger.json)
+This code repository contains API tests for "petstore v2" (https://petstore.swagger.io/v2/swagger.json)
 
 This is a sample API testing project which will test the following requests:
 
@@ -40,8 +40,6 @@ Note:
 Run and tested on MacOS Big Sur (Version 11.4)
 ESLINT is installed and configured.
 Pre-commit hook is used in this project to make sure non linted code is not allowed to commit.
-run : `npm run lint` command to make code is in proper format.
-
 
 Running Tests:
  1. Checkout the code from repo.
@@ -50,7 +48,8 @@ Running Tests:
 
  3. run on command line/bash  : `npm install`
 
- 4. once all the dependencies are installed run `npm run test`
+ 4. once all the dependencies are installed run `npm run test` (with report)
+ 
 
  Note : 
  Make sure .env & .babelrc is not missing 

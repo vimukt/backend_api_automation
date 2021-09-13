@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/_mocha --require @babel/register ./specs/**/*.spec.js   --timeout 99999999",
+    "test": "node ./node_modules/mocha/bin/_mocha --require @babel/register ./specs/**/*.spec.js   --timeout 99999999 --reporter mochawesome",
     "lint:fix": "eslint apis/*/**.js specs/*/**.js --fix",
-    "lint": "eslint apis/*/**.js specs/*/**.js",
-    "test:reports": "node ./node_modules/mocha/bin/_mocha --require @babel/register ./specs/**/*.spec.js   --timeout 99999999 --reporter mochawesome"
+    "lint": "eslint apis/*/**.js specs/*/**.js"
   },
   "keywords": [],
   "author": "vimukt@gmail.com",
